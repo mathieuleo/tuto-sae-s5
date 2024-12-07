@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Metabase et Superset</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo_iut">
+            <img class="logo" src="Images/Logo_iut.png">
+            <img class="logo" src="Images/IUT%20reims.png">
+        </div>
+        <h1 class="title">Metabase et Superset : visualisation rapide et simple</h1>
+        <div class="logo_iut">
+            <img class="logo" src="Images/Logo_iut_info.png">
+        </div>
+    </header>
+    <div class="main_content">
+        <div class="Sommaire">
+            <h1 class="Sommaire Title"> Sommaire</h1>
+            <ul>
+                <li>
+                    <h3><a href="#fonctionnalites" class="other">Fonctionnalités</a></h3>
+                </li>
+                <li>
+                    <h3><a href="#performance" class="other">Performance</a></h3>
+                </li>
+                <li>
+                    <h3><a href="#scalabilite" class="other">Scalabilité</a></h3>
+                </li>
+                <li>
+                    <h3><a href="#integration" class="other">Facilité d'intégration</a></h3>
+                </li>
+                <li>
+                    <h3><a href="#avantage" class="other">Avantages, inconvénients et limitations</a></h3>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="group">
+                <h1 style="text-align: center;">Comparaison</h1><br>
+                <h1 id="fonctionnalites">
+                    Fonctionnalités
+                </h1>
+                <h3>Metabase :</h3>
+                <ul>
+                    <li>
+                        <b>Visualisations : </b> 
+                        <p>Interface intuitive, adaptée aux utilisateurs non techniques, permettant de créer des dashboards rapidement.</p>
+                    </li>
+                    <li>
+                        <b>Exploration des données : </b>
+                        <p>Possibilité de poser des questions en langage naturel et d’obtenir des visualisations automatiquement.</p>
+                    </li>
+                    <li>
+                        <b>Support SQL : </b>
+                        <p>Intégration facile pour écrire des requêtes SQL avancées.</p>
+                    </li>
+                    <li>
+                        <b>Open-source : </b>
+                        <p>Métabase propose une version open-source gratuite, avec des options commerciales pour des fonctionnalités avancées.</p>
+                    </li>
+                    <li>
+                        <b>Automatisation : </b>
+                        <p>Notifications automatiques par e-mail ou Slack basées sur les résultats des requêtes.</p>
+                    </li>
+                </ul>
+                <h3>Power BI :</h3>
+                <ul>
+                    <li>
+                        <b>Visualisations avancées : </b>
+                        <p>Outil de visualisation de données puissant avec une grande variété de graphiques, y compris des visualisations interactives.</p>
+                    </li>
+                    <li>
+                        <b>Modélisation des données : </b>
+                        <p>Possibilité d'importer et de manipuler des données complexes, avec un outil de modélisation robuste.</p>
+                    </li>
+                    <li>
+                        <b>Power Query : </b>
+                        <p>Permet des calculs et transformations de données avancées.</p>
+                    </li>
+                    <li>
+                        <b>Intégration Microsoft : </b>
+                        <p>Très bien intégré dans l’écosystème Microsoft (Azure, SQL Server, Excel, SharePoint).</p>
+                    </li>
+                    <li>
+                        <b>Cloud et On-premises : </b>
+                        <p>Disponible à la fois sur le cloud et on-premises avec Power BI Report Server.</p>
+                    </li>
+                </ul>
+                <p>
+                    Metabase est plus simple et rapide à utiliser pour des analyses exploratoires avec des fonctionnalités 
+                    suffisantes pour les équipes techniques et non techniques. Power BI, en revanche, propose des fonctionnalités 
+                    plus robustes, particulièrement pour des analyses complexes et des entreprises qui nécessitent des 
+                    visualisations avancées.
+                </p>
+                <h1 id="performance">
+                    Performance
+                </h1>
+                <h3>
+                    Metabase :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            Performances suffisantes pour des tableaux de bord basiques et des petites à moyennes 
+                            quantités de données.
+                        </p>    
+                    </li>
+                    <li>
+                        <p>
+                            Les performances peuvent diminuer avec de très grandes bases de données ou des requêtes très complexes.
+                        </p>
+                    </li>
+                </ul>
+                <h3>
+                    Power BI :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            Optimisé pour de grandes quantités de données avec un bon support pour le traitement de données 
+                            massives.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Utilise des techniques comme le stockage en mémoire pour améliorer les performances lors de 
+                            l’utilisation d'importants jeux de données.
+                        </p>
+                    </li>
+                </ul>
+                <p>
+                    Power BI a un net avantage en termes de performance, surtout pour les entreprises qui gèrent de très 
+                    grandes bases de données. Metabase peut convenir aux petits et moyens ensembles de données, mais pourrait 
+                    être moins performant pour des analyses massives.
+                </p>
+                <h1 id="scalabilite">
+                    Scalabilité
+                </h1>
+                <h3>
+                    Metabase :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            Convient pour des équipes de petite à moyenne taille. Les options de scalabilité nécessitent 
+                            de configurer l’application pour une utilisation en cluster ou via des services cloud, avec des 
+                            options limitées dans la version open-source.
+                        </p>
+                    </li>
+                </ul>
+                <h3>
+                    Power BI :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            Hautement scalable, avec des capacités cloud robustes (Power BI Service) qui s'adaptent 
+                            aux entreprises de toutes tailles, en particulier via Azure.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Support d'intégration de sources de données volumineuses et de rapports complexes pour des 
+                            équipes globales.
+                        </p>
+                    </li>
+                </ul>
+                <p>
+                    Power BI est plus adapté aux entreprises qui ont besoin de gérer de grands volumes de données à grande 
+                    échelle. Metabase peut être limité à plus grande échelle, surtout sans l’infrastructure cloud nécessaire.
+                </p>
+                <h1 id="integration">
+                    Facilité d'intégration
+                </h1>
+                <h3>
+                    Metabase :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            S'intègre avec plusieurs bases de données (MySQL, PostgreSQL, etc.), et propose des connecteurs 
+                            pour des systèmes de base de données courants.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Moins d'intégrations natives comparé à Power BI, mais une flexibilité open-source permettant de 
+                            développer des intégrations personnalisées.
+                        </p>
+                    </li>
+                </ul>
+                <h3>
+                    Power BI :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            Forte intégration avec l’écosystème Microsoft, notamment Azure, Excel, et SharePoint.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Connecteurs pour de nombreuses sources de données (SQL, Oracle, Google Analytics, Salesforce, etc.).
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            API pour intégrer des données ou des visualisations Power BI dans d’autres applications.
+                        </p>
+                    </li>
+                </ul>
+                <p>
+                    Power BI offre une plus grande flexibilité en termes d’intégration avec une vaste gamme d’applications 
+                    et de bases de données, particulièrement pour les utilisateurs de l'écosystème Microsoft. Metabase est 
+                    plus limité, mais reste efficace dans un environnement open-source.
+                </p>
+                <h1 id="avantage">
+                    Avantages, inconvénients et limitations
+                </h1>
+                <h3>
+                    Metabase :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            <b>Avantages :</b> Gratuit (open-source), facile à installer et à utiliser, interface conviviale pour les 
+                            utilisateurs non techniques, bon support pour les bases de données open-source.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Inconvénients :</b> Scalabilité limitée pour les grandes entreprises, options limitées en matière de 
+                            visualisations avancées, intégration moins poussée.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Limitations :</b> Moins adapté aux environnements complexes avec des besoins en analyse de données très spécifiques ou avancés.
+                        </p>
+                    </li>
+                </ul>
+                <h3>
+                    Power BI :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            <b>Avantages :</b> Très complet avec des visualisations et des rapports puissants, scalabilité, 
+                            excellentes capacités d’intégration, idéal pour les grandes entreprises.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Inconvénients :</b> Coût élevé pour les licences (surtout pour les versions Pro), courbe 
+                            d’apprentissage plus élevée, particulièrement pour les utilisateurs non techniques.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Limitations :</b> Peut être surdimensionné pour des petites équipes ou des analyses plus simples.
+                        </p>
+                    </li>
+                </ul>
+                <p>
+                    En résumé, Metabase est un excellent choix pour les petites à moyennes entreprises avec des besoins 
+                    en analyse de données moins complexes, tandis que Power BI est plus adapté aux entreprises de plus 
+                    grande taille nécessitant des analyses avancées et une forte intégration avec des systèmes complexes.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

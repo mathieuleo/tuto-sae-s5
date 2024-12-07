@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Metabase et Superset</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo_iut">
+            <img class="logo" src="Images/Logo_iut.png">
+            <img class="logo" src="Images/IUT%20reims.png">
+        </div>
+        <h1 class="title">Metabase et Superset : visualisation rapide et simple</h1>
+        <div class="logo_iut">
+            <img class="logo" src="Images/Logo_iut_info.png">
+        </div>
+    </header>
+    <div class="main_content">
+        <div class="Sommaire">
+            <h1 class="Sommaire Title"> Sommaire</h1>
+            <ul>
+                <li>
+                    <h3><a href="#introduction" class="other">Introduction</a></h3>
+                </li>
+                <li>
+                    <h3><a href="#tuto_ins_metabase" class="other">Installation Metabase</a></h3>
+                </li>
+                <li>
+                    <h3><a href="#tuto_ut_metabase" class="other">Utilisation Metabase</a></h3>
+                </li>
+                <li>
+                    <h3><a href="#tuto_ins_superset" class="other">Installation Superset</a></h3>
+                </li>
+                <li>
+                    <h3><a href="#tuto_ut_superset" class="other">Utilisation Superset</a></h3>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="group">
+                <h1 id="introduction">Introduction à Metabase et Superset</h1>
+                <p>
+                    De nos jours, où les données jouent un rôle important dans la prise de décision stratégique, 
+                    il est essentiel pour les entreprises de disposer d'outils qui leur permettent d'analyser et de visualiser 
+                    efficacement leurs informations. Parmi les nombreuses solutions disponibles, Metabase et Superset se sont 
+                    montrés comme des options simples, accessibles et puissantes pour les petites et moyennes entreprises ainsi 
+                    que pour les équipes techniques.
+                </p>
+                <p>
+                    Metabase et Superset sont des outils de Business Intelligence open-source conçus pour rendre l'exploration 
+                    des données intuitive et accessible à tous, sans nécessiter de compétences techniques approfondies en analyse 
+                    ou en programmation. Ils offrent une interface utilisateur conviviale qui permet de poser des questions aux 
+                    bases de données via une interface graphique, de générer des rapports, de construire des tableaux de bord et 
+                    de visualiser des données sans écrire une seule ligne de code.
+                </p>
+                <p>
+                    L'une des grandes forces de Metabase et Superset est leur capacité à s'intégrer avec plusieurs systèmes de 
+                    bases de données populaires, tels que MySQL, PostgreSQL, MongoDB, et SQL Server, tout en offrant une 
+                    expérience fluide pour les utilisateurs non techniques. Pour ceux ayant des compétences plus avancées, 
+                    Metabase et Superset permettent aussi d'exécuter des requêtes SQL personnalisées et Metabase permet 
+                    d'automatiser des rapports complexes.
+                </p>
+                <p>
+                    Dans cet article, nous allons explorer en détail la prise en main de Metabase et Superset, comment les 
+                    installer, interagir avec une base de données, et de montrer leurs avantages et inconvénients par rapport 
+                    à d'autres solutions de BI comme Power BI.
+                </p>
+            </div>
+            <hr>
+            <div class="group">
+                <h1 id="tuto_ins_metabase">
+                    Tutoriel Installation Metabase
+                </h1>
+                <p>Tout d'abord, mettez à jour le système :</p>
+                <code>sudo apt update<br>sudo apt upgrade</code>
+                <h2>Etape 1 : Installation de MySQL</h2>
+                <h3>1. Installer MySQL</h3>
+                <code>sudo apt install mysql-server</code>
+                <h3>2. MySQL comprend un script de sécurité qui simplifie la configuration de certaines options de sécurité :</h3>
+                <code>sudo mysql_secure_installation</code>
+                <p>Vous serez invité à répondre à plusieurs questions. Voici les réponses recommandées :</p>
+                <ul>
+                    <li class="elt">Configurer le plugin de validation du mot de passe : Choisissez un niveau (0 = faible, 2 = fort).</li>
+                    <li class="elt">Modifier le mot de passe de l'utilisateur root : Oui, et définissez un mot de passe fort.</li>
+                    <li class="elt">Supprimer les utilisateurs anonymes : Oui.</li>
+                    <li class="elt">Désactiver la connexion root à distance : Oui.</li>
+                    <li class="elt">Supprimer la base de données de test et y accéder : Oui.</li>
+                    <li class="elt">Recharger les tables de privilèges : Oui.</li>
+                </ul>
+                <h3>3. Vérifier l'état du serveur MySQL</h3>
+                <code>sudo systemctl status mysql</code>
+                <p>Vous devriez voir quelque chose comme "active (running)".</p>
+                <h3>4. Se connecter à MySQL</h3>
+                <code>sudo mysql -u root -p</code>
+                <p>Saisissez le mot de passe que vous avez défini précédemment</p>
+                <h3>5. Créer une base de données pour Metabase</h3>
+                <p>Une fois connecté à MySQL, exécutez les commandes suivantes pour créer une base de données et un utilisateur</p>
+                <code>
+                    CREATE DATABASE metabase_db;<br>
+                    CREATE USER 'metabase_user'@'%' IDENTIFIED WITH mysql_native_password BY 'mot_de_passe_secure';<br>
+                    GRANT ALL PRIVILEGES ON metabase_db.* TO 'metabase_user'@'%';<br>
+                    FLUSH PRIVILEGES;<br>
+                    EXIT;<br>
+                </code>
+                <h2>Etape 2 : Installation de Metabase</h2>
+                <h3>1. Installer Java</h3>
+                <p>Metabase est une application Java, donc nous devons installer Java sur le serveur</p>
+                <code>sudo apt install openjdk-17-jre-headless</code>
+                <h3>2. Créer un répertoire pour Metabase</h3>
+                <code>sudo mkdir /opt/metabase</code>
+                <h3>3. Télécharger Metabase</h3>
+                <code>wget https://downloads.metabase.com/v0.50.27/metabase.jar</code>
+                <p>Remplacez la version par celle que vous voulez, voici la liste des version de Metabase : <a href="https://www.metabase.com/docs/latest/releases" target="_blank">Versions</a></p>
+                <h3>4. Créer un fichier de service systemd pour Metabase</h3>
+                <p>Cela permettra à Metabase de fonctionner en tant que service</p>
+                <code>sudo nano /etc/systemd/system/metabase.service</code>
+                <p>Collez le contenu suivant dans le fichier :</p>
+                <code>[Unit]<br>
+                    Description=Metabase<br>
+                    After=syslog.target<br>
+                    After=network.target<br>
+                    <br>
+                    [Service]<br>
+                    WorkingDirectory=/opt/metabase<br>
+                    ExecStart=/usr/bin/java -jar /opt/metabase/metabase.jar<br>
+                    User=root<br>
+                    Type=simple<br>
+                    Restart=always<br>
+                    <br>
+                    [Install]<br>
+                    WantedBy=multi-user.target<br>
+                </code>
+                <p>Sauvegardez et fermez le fichier</p>
+                <h3>5. Démarrer et activer le service Metabase</h3>
+                <code>
+                    sudo systemctl daemon-reload<br>
+                    sudo systemctl start metabase<br>
+                    sudo systemctl enable metabase
+                </code>
+                <h3>6. Vérifier le statut du service Metabase</h3>
+                <code>sudo systemctl status metabase</code>
+                <p>Vous devriez voir “active (running)”.</p>
+                <h3>7. Accéder à Metabase</h3>
+                <p>Par défaut, Metabase sera accessible via le port 3000. Ouvrez un navigateur web et accédez à l’adresse suivante : <b>adresse_ip_machine:3000</b></p>
+                <p>Vous devriez voir l’interface de configuration initiale de Metabase.</p>
+                <h2>Etape 3 : Configurer Metabase</h2>
+                <p>Suivez les instructions à l’écran pour configurer un utilisateur administrateur Metabase</p>
+                <h3>Connecter Metabase à la base de données MySQL</h3>
+                <p>Lorsque Metabase vous demande de configurer votre première base de données, sélectionnez MySQL.</p>
+                <p>Saisissez les informations que vous avez configurées précédemment :</p>
+                <ul>
+                    <li class="elt">Nom de l’hôte : localhost</li>
+                    <li class="elt">Nom de la base de données : metabase_db</li>
+                    <li class="elt">Nom d’utilisateur : metabase_user</li>
+                    <li class="elt">Mot de passe : mot_de_passe_secure</li>
+                </ul>
+                <h3>Terminez la configuration</h3>
+                <p>
+                    Vous avez maintenant un serveur MySQL fonctionnel et Metabase installé, configuré pour utiliser 
+                    la base de données MySQL que vous avez créée. Vous pouvez maintenant commencer à utiliser Metabase 
+                    pour analyser et visualiser vos données.
+                </p>
+            </div>
+            <hr>
+            <div class="group">
+                <h1 id="tuto_ut_metabase">
+                    Tutoriel Utilisation Metabase
+                </h1>
+                <p>Une fois que tout est installé, vous pouvez commencer à utiliser Metabase.</p>
+                <p>Vous trouverez dans la barre en haut, une barre de recherche pour trouver des tableaux de bords, des graphiques ou même des questions que vous aurez créé précédemment.</p>
+                <p>En haut à droite se trouve un bouton bleu “+ Nouveau”, en cliquant dessus vous pourrez créer des tableaux de bords, des requêtes SQL et des questions pour interroger votre base de données.</p>
+                <h3>Créer une question et la visualiser</h3>
+                <p>
+                    Cliquez sur le bouton bleu “+ Nouveau” en haut à droite de la page puis “Question”.
+                </p>
+                <div class="image-container">
+                    <img src="Images/nouveau.png" class="images">
+                </div>
+                <p>
+                    Vous devrez sélectionner la base de données à utiliser puis vous pourrez créer votre question.
+                </p>
+                <div class="image-container">
+                    <img src="Images/choix_bd.png" class="images">
+                </div>
+                    Une fois la base de données choisie, vous pourrez filtrer et résumer (nombre de lignes, somme de, moyenne de…) 
+                    les données selon vos besoins mais aussi les trier et afficher un nombre de lignes maximum. Par exemple avec 
+                    une base de données répertoriant les attaques d’ours depuis 1900, vous pouvez afficher le type d’ours avec 
+                    leur nombre d’attaques.
+                </p>
+                <div class="image-container">
+                    <img src="Images/question.png" class="images">
+                </div>
+                <p>
+                    Une fois la question terminée, cliquez sur “Visualiser” juste en dessous et votre 
+                    graphique s’affichera. Si vous voulez personnaliser ce graphique (type de graphique, couleurs…), cliquez sur 
+                    “Visualisation” en bas à gauche. Divers éléments de la légende peuvent être aussi changés. Une fois satisfait,
+                    vous pourrez sauvegarder cette question/ce graphique en cliquant sur “Sauvegarder” en haut à droite, Vous 
+                    devrez donner un nom à cette question, une description facultative, et une collection. Puis enfin vous pourrez 
+                    ajouter ce graphique à un tableau de bord.
+                </p>
+                <div class="image-container">
+                    <img src="Images/exemple_graphique.png" class="images">
+                    <img src="Images/legende.png" class="images">
+                    <img src="Images/legende_2.png.png" class="images">
+                </div>
+                <h3>Créer un tableau de bord</h3>
+                <p>
+                    Cliquez sur le bouton bleu “+ Nouveau” en haut à droite de la page puis “Tableau de bord”. Vous devrez ensuite 
+                    donner un nom à ce tableau de bord. Si vous voulez, vous pouvez mettre une description mais cela n’est pas 
+                    obligatoire. Puis enfin vous devrez mettre ce tableau de bord dans une collection.
+                </p>
+                <p>
+                    Maintenant que vous avez créé votre tableau de bord, vous pouvez ajouter une question que vous avez 
+                    sauvegardée précédemment en cliquant sur le bouton “+” en haut à droite mais aussi du texte pour par exemple 
+                    écrire un titre pour le tableau de bord. Vous pourrez aussi si nécessaire ajouter un filtre au tableau de bord 
+                    pour que les graphiques ne prennent que les données selon le/les filtre(s) défini(s), il faudra cliquer sur 
+                    l’icône en forme de pyramide inversée en haut à droite puis choisir le filtre voulu.
+                </p>
+                <p>
+                    Une fois votre tableau de bord fini, vous devrez cliquer sur “Sauvegarder” tout en haut à droite et vous 
+                    pourrez toujours le modifier plus tard comme bon vous semble.
+                </p>
+                <div class="image-container">
+                    <img src="Images/dashboard.png" class="images">
+                </div>
+            </div>
+            <hr>
+            <div class="group">
+                <h1 id="tuto_ins_superset">
+                    Tutoriel Installation Superset
+                </h1>
+                <p>Tout d'abord, mettez à jour le système :</p>
+                <code>sudo apt update<br>sudo apt upgrade</code>
+                <p>Installez les paquets nécessaires pour faire fonctionner Superset.</p>
+                <code>sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-venv libsasl2-dev libldap2-dev libpq-dev</code>
+                <p>Pour isoler l'installation de Superset, nous allons utiliser un environnement virtuel Python.</p>
+                <code>python3 -m venv superset-venv<br>source superset-venv/bin/activate</code>
+                <p>Une fois l'environnement activé, utilisez pip pour installer Superset.</p>
+                <code>pip install apache-superset</code>
+                <p>Superset utilise une base de données pour stocker les configurations, utilisateurs, et autres données de l'application. Initialisez-la avec la commande suivante :</p>
+                <code>superset db upgrade</code>
+                <p>Créez un utilisateur administrateur pour vous connecter à Superset :</p>
+                <code>export FLASK_APP=superset<br>superset fab create-admin</code>
+                <p>Pour commencer avec des données et des tableaux de bord d'exemple (facultatif), vous pouvez exécuter cette commande :</p>
+                <code>superset load_examples</code>
+                <p>Ensuite, vous devez initialiser les rôles et les permissions par défaut de Superset.</p>
+                <code>superset init</code>
+                <p>Vous pouvez maintenant démarrer le serveur web de Superset. Par défaut, il s'exécute sur le port 8088.</p>
+                <code>superset run -p 8088 --with-threads --reload --debugger</code>
+                <p>Pour utiliser Superset avec une base de données, vous pouvez ajouter une connexion depuis l'interface Superset. Accédez à Data -> Databases et ajoutez une nouvelle connexion en entrant l'URL de votre base de données.</p>
+                <p>Par exemple, pour se connecter à une base de données PostgreSQL :</p>
+                <code>postgresql+psycopg2://username:password@localhost:5432/database_name</code>
+                <p>Assurez-vous d'installer les pilotes nécessaires pour la base de données (par exemple, psycopg2 pour PostgreSQL ou mysqlclient pour MySQL).</p>
+            </div>
+            <div class="group">
+                <h1 id="tuto_ut_superset">
+                    Tutoriel Utilisation Superset
+                </h1>
+            </div>
+        </div>
+    </body>
+</html>
