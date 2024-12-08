@@ -94,11 +94,34 @@
                         <p>Disponible à la fois sur le cloud et on-premises avec Power BI Report Server.</p>
                     </li>
                 </ul>
+                <h3>Superset :</h3>
+                <ul>
+                    <li>
+                        <b>Visualisations : </b>
+                        <p>Offre des visualisations avancées et interactives, mais nécessite souvent une configuration technique.</p>
+                    </li>
+                    <li>
+                        <b>Exploration des données : </b>
+                        <p>Basé sur les requêtes SQL manuelles ou un éditeur graphique puissant.</p>
+                    </li>
+                    <li>
+                        <b>Open-source : </b>
+                        <p>Entièrement gratuit, avec une communauté active pour le support et les extensions.</p>
+                    </li>
+                    <li>
+                        <b>Personnalisation :  </b>
+                        <p>Très flexible, permettant une personnalisation poussée pour les besoins spécifiques.</p>
+                    </li>
+                    <li>
+                        <b>Automatisation : </b>
+                        <p>Moins développé pour les notifications ou les automatisations simples que Metabase.</p>
+                    </li>
+                </ul>
                 <p>
                     Metabase est plus simple et rapide à utiliser pour des analyses et visualisations avec des fonctionnalités 
                     suffisantes pour les équipes techniques et non techniques. Power BI, en revanche, propose des fonctionnalités 
                     plus robustes, particulièrement pour des analyses complexes et des entreprises qui nécessitent des 
-                    visualisations avancées.
+                    visualisations avancées. Superset offre une personnalisation maximale, mais avec une courbe d'apprentissage plus importante.
                 </p>
                 <h1 id="performance">
                     Performances
@@ -136,10 +159,25 @@
                         </p>
                     </li>
                 </ul>
+                <h3>
+                    Superset :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            Très performant dans des environnements bien configurés, comme des clusters ou des bases de données distribuées.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Peut nécessiter des ajustements techniques pour atteindre des performances optimales.
+                        </p>
+                    </li>
+                </ul>
                 <p>
-                    Power BI a un net avantage en termes de performance, surtout pour les entreprises qui gèrent de très 
-                    grandes bases de données. Metabase peut convenir aux petits et moyens ensembles de données, mais pourrait 
-                    être moins performant pour des analyses massives.
+                    Power BI se démarque pour les analyses de données massives et les performances constantes. 
+                    Superset est également performant, mais demande une infrastructure solide. 
+                    Metabase est plus limité aux petites et moyennes entreprises.
                 </p>
                 <h1 id="scalabilite">
                     Scalabilité
@@ -173,9 +211,25 @@
                         </p>
                     </li>
                 </ul>
+                <h3>
+                    Superset :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            Conçu pour être scalable dans des environnements techniques complexes.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            S’intègre bien avec les architectures cloud, permettant une montée en charge efficace.
+                        </p>
+                    </li>
+                </ul>
                 <p>
-                    Power BI est plus adapté aux entreprises qui ont besoin de gérer de grands volumes de données à grande 
-                    échelle. Metabase peut être limité à plus grande échelle, surtout sans l’infrastructure cloud nécessaire.
+                    Power BI est la solution la plus robuste pour des entreprises nécessitant une scalabilité globale. 
+                    Superset suit de près avec une capacité de montée en charge impressionnante. 
+                    Metabase est plus limité à grande échelle.
                 </p>
                 <h1 id="integration">
                     Facilité d'intégration
@@ -217,10 +271,26 @@
                         </p>
                     </li>
                 </ul>
+                <h3>
+                    Superset :
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            Grande flexibilité pour se connecter à des bases de données via SQLAlchemy.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Demande des compétences techniques pour créer des intégrations personnalisées ou gérer des connecteurs spécifiques.
+                        </p>
+                    </li>
+                </ul>
                 <p>
                     Power BI offre une plus grande flexibilité en termes d’intégration avec une vaste gamme d’applications 
                     et de bases de données, particulièrement pour les utilisateurs de l'écosystème Microsoft. Metabase est 
-                    plus limité, mais reste efficace dans un environnement open-source.
+                    plus limité, mais reste efficace dans un environnement open-source. Superset offre une flexibilité 
+                    open-source intéressante, mais demande une expertise technique.
                 </p>
                 <h1 id="avantage">
                     Avantages, inconvénients et limitations
@@ -269,10 +339,36 @@
                         </p>
                     </li>
                 </ul>
+                <h3>
+                    Superset:
+                </h3>
+                <ul>
+                    <li>
+                        <p>
+                            <b>Avantages :</b> Open-source et gratuit, très personnalisable, 
+                            performant dans des environnements complexes et scalables.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Inconvénients :</b> Configuration initiale complexe, nécessite 
+                            des compétences techniques pour être pleinement exploité.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Limitations :</b> Moins adapté aux utilisateurs non techniques ou aux 
+                            environnements cherchant une solution prête à l’emploi.
+                        </p>
+                    </li>
+                </ul>
                 <p>
-                    En résumé, Metabase est un excellent choix pour les petites à moyennes entreprises avec des besoins 
-                    en analyse de données moins complexes, tandis que Power BI est plus adapté aux entreprises de plus 
-                    grande taille nécessitant des analyses avancées et une forte intégration avec des systèmes complexes.
+                    En résumé, Metabase est un excellent choix pour les petites et moyennes entreprises ayant des besoins 
+                    en analyse de données simples à modérés, grâce à sa facilité d'utilisation et son accessibilité. Power BI, 
+                    en revanche, est mieux adapté aux grandes entreprises nécessitant des analyses avancées, une forte intégration
+                     avec des systèmes complexes et une scalabilité robuste. Superset se positionne comme une solution idéale pour les 
+                     environnements techniques exigeants, offrant une personnalisation poussée et des performances élevées, mais nécessitant 
+                     des compétences techniques pour être pleinement exploité.
                 </p>
             </div>
         </div>
