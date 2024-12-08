@@ -257,6 +257,121 @@
                 <h1 id="tuto_ut_superset">
                     Tutoriel Utilisation Superset
                 </h1>
+                <p>
+                    Une fois l'installation de Superset terminée, vous pouvez commencer à l'utiliser pour créer des tableaux de bord et des visualisations 
+                    interactives basées sur vos données.
+                </p>
+                <h3>1. Connexion à l'interface de Superset</h3>
+                <p>
+                    Ouvrez un navigateur web et accédez à l'adresse suivante : <b>http://adresse_ip_machine:8088</b>. Vous verrez une page de connexion. 
+                    Utilisez les identifiants administrateur que vous avez créés lors de l'installation pour vous connecter.
+                </p>
+                <h3>2. Ajouter une base de données</h3>
+                <p>
+                    Avant de créer des visualisations, vous devez connecter Superset à une base de données contenant vos données.
+                </p>
+                <ul>
+                    <li>Accédez au menu <b>Settings -> Data -> Databases</b>.</li>
+                    <div class="image-container">
+                        <img src="Images/ss_settings_db.png" class="images-petite">
+                    </div>
+                    <li>Cliquez sur le bouton <b>+ Database</b>. </li>
+                    <img src="Images/+database.png" width="15%">
+
+                    <li>Saisissez les informations de connexion à votre base de données dans le champ <b>SQLAlchemy URI</b>.</li>
+                    <li>Par exemple, pour PostgreSQL : 
+                        <code>postgresql+psycopg2://username:password@localhost:5432/database_name</code>
+                    </li>
+                    <li>Cliquez sur <b>Test Connection</b> pour vérifier la connexion, puis sur <b>Save</b>.</li>
+                </ul>
+                <h3>3. Créer une source de données (Dataset)</h3>
+                <p>
+                    Une fois la base de données connectée, vous devez créer un dataset qui servira de base à vos visualisations.
+                </p>
+                <ul>
+                    <li>Accédez au menu <b>Datasets</b>.</li>
+                    <div class="image-container">
+                        <img src="Images/ssdataset.png" class="images">
+                    </div>
+                    <li>Cliquez sur le bouton <b>+ Dataset</b>.</li>
+                    <li>Sélectionnez la base de données ajoutée précédemment et choisissez une table ou une vue.</li>
+                    <li>Donnez un nom descriptif à votre dataset et cliquez sur <b>Save</b>.</li>
+                </ul>
+                <h3>4. Créer une visualisation</h3>
+                <p>
+                    Maintenant que vous avez configuré un dataset, vous pouvez créer des graphiques et des visualisations :
+                </p>
+                <ul>
+                    <li>Accédez au menu <b>Charts</b>.</li>
+                    <div class="image-container">
+                        <img src="Images/sschart.png" class="images">
+                    </div>
+                    <li>Cliquez sur le bouton <b>+ Chart</b>.</li>
+                    <li>Sélectionnez votre dataset dans la liste.</li>
+                    <div class="image-container">
+                        <img src="Images/sschoosedata.png" class="images">
+                    </div>
+                    <li>Choisissez un type de graphique parmi les options disponibles (barres, lignes, cartes, etc.).</li>
+                    <div class="image-container">
+                        <img src="Images/sschoosechart.png" class="images">
+                    </div>
+                    <li>Utilisez les options de configuration pour personnaliser votre graphique, notamment :
+                        <ul>
+                            <li>Les métriques (somme, moyenne, etc.).</li>
+                            <li>Les dimensions pour regrouper ou filtrer vos données.</li>
+                            <li>Les options d'affichage (couleurs, axes, légendes, etc.).</li>
+                        </ul>
+                    </li>
+                    <li>Lorsque vous êtes satisfait, cliquez sur <b>Save</b> pour enregistrer votre graphique.</li>
+                </ul>
+                <h3>5. Créer un tableau de bord</h3>
+                <p>
+                    Les tableaux de bord vous permettent de combiner plusieurs graphiques en une vue interactive unique :
+                </p>
+                <ul>
+                    <li>Accédez au menu <b>Dashboards</b>.</li>
+                    <div class="image-container">
+                        <img src="Images/ssdashb.png" class="images">
+                    </div>
+                    <li>Cliquez sur le bouton <b>+ Dashboard</b>.</li>
+                    <li>Donnez un nom à votre tableau de bord et cliquez sur <b>Save</b>.</li>
+                    <li>Pour ajouter des graphiques au tableau de bord :
+                        <ul>
+                            <li>Ouvrez votre tableau de bord.</li>
+                            <li>Cliquez sur le bouton <b>Edit Dashboard</b>.</li>
+                            <li>Vous pouvez ensuite choisir quels graphiques ajouter et les inclure avec un simple <b>glisser-déposer</b> </li>
+                        </ul>
+                    </li>
+                </ul>
+                    <div class="image-container">
+                        <img src="Images/ssdashb2.png" class="images">
+                    </div>
+                
+                <ul>
+                    <li>Organisez les graphiques par <b>glisser-déposer</b> et ajustez leur taille selon vos préférences.</li>
+                    <li>Cliquez sur <b>Save Changes</b> pour sauvegarder vos modifications.</li>
+                </ul>
+                <h3>6. Utiliser les filtres interactifs</h3>
+                <p>
+                    Les filtres interactifs permettent aux utilisateurs d'explorer les données directement depuis le tableau de bord :
+                </p>
+                <ul>
+                    <li>Dans l'éditeur de tableau de bord, cliquez sur <b>Add Filter</b>.</li>
+                    <li>Sélectionnez un type de filtre (sélection, plage de dates, etc.) et associez-le à une colonne de votre dataset.</li>
+                    <li>Ajoutez ce filtre au tableau de bord et positionnez-le où vous le souhaitez.</li>
+                    <li>Testez le filtre en sélectionnant différentes options pour voir les graphiques se mettre à jour dynamiquement.</li>
+                </ul>
+                <h3>7. Partager et exporter</h3>
+                <p>
+                    Superset permet de partager vos tableaux de bord avec d'autres utilisateurs :
+                </p>
+                <ul>
+                    <li>Ajoutez des utilisateurs ou configurez des rôles pour gérer les permissions.</li>
+                    <li>Exportez un tableau de bord au format PNG ou CSV depuis l'interface.</li>
+                </ul>
+                <p>
+                    Félicitations ! Vous avez maintenant les bases pour utiliser Superset et exploiter vos données efficacement. 🎉
+                </p>
             </div>
         </div>
     </body>
