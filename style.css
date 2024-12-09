@@ -80,12 +80,14 @@ div.content{
     width: 75%;
     height: 75%;
     margin: auto ;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .images-petite{
     width: 20%;
     height: 20%;
     margin: auto ;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -169,4 +171,13 @@ h1, h2 {
 .card p {
     font-size: 14px;
     color: #666;
+}
+
+footer {
+    text-align: center;
+    background-color: #ffffff;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
