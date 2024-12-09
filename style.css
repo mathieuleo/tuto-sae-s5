@@ -47,7 +47,7 @@ header h1{
 
 div.Sommaire{
     top:1em;
-    border: 6px black ridge;
+    border: 6px black solid;
     border-radius: 10px;
     width: 13%;
     height: fit-content;
